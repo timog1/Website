@@ -1,0 +1,304 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-services',
+  template: `
+    <div class="space-y-12">
+      <section>
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Services & Dependency Injection</h1>
+        <p class="text-xl text-gray-600">
+          Master Angular's powerful dependency injection system and learn how to share data across components using services.
+        </p>
+      </section>
+
+      <!-- What are Services -->
+      <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">What are Services?</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Services are a big part of any Angular app. An Angular service is typically an object with a narrow, well-defined
+          purpose. It should do something specific and do it well. Services are identified by the <code class="bg-gray-100 px-2 py-0.5 rounded text-red-600 text-sm">@Injectable()</code> decorator.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Services are used to:
+        </p>
+        <ul class="list-disc list-inside text-gray-600 space-y-2 mt-3 ml-4">
+          <li>Share data across multiple components</li>
+          <li>Handle HTTP requests to backend APIs</li>
+          <li>Encapsulate business logic</li>
+          <li>Access browser APIs (localStorage, sessionStorage)</li>
+          <li>Manage application state</li>
+        </ul>
+      </section>
+
+      <!-- Creating a Service -->
+      <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Creating a Service</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Basic Service</h3>
+            <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
+              <pre>{{ basicService }}</pre>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Using the Service in a Component</h3>
+            <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
+              <pre>{{ useService }}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dependency Injection -->
+      <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Dependency Injection (DI)</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Dependency Injection (DI) is a design pattern used for implementing Inversion of Control (IoC).
+          Angular has its own DI framework, and it's usually the preferred way to handle dependencies.
+          It's also a form of third-party library integration.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          The DI pattern means that a class requests dependencies from external sources rather than creating them itself.
+          Angular's DI is hierarchical — providers are registered at different levels, and a component can access
+          services from its own injector or from parent injectors.
+        </p>
+      </section>
+
+      <!-- Provider Levels -->
+      <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Provider Levels</h2>
+        <p class="text-gray-600 leading-relaxed mb-6">
+          Where you register a service determines its scope and lifetime. Here are the common provider levels:
+        </p>
+        <div class="space-y-4">
+          @for (level of providerLevels; track level.name) {
+            <div class="border border-gray-200 rounded-xl p-5">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-xl">{{ level.icon }}</span>
+                <h3 class="font-semibold text-gray-900">{{ level.name }}</h3>
+              </div>
+              <p class="text-gray-500 text-sm mb-3">{{ level.description }}</p>
+              <div class="bg-gray-900 rounded-lg p-3 font-mono text-sm text-green-400 overflow-x-auto">
+                <pre>{{ level.example }}</pre>
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+
+      <!-- HTTP Client -->
+      <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">HTTP Client Service</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Angular provides a built-in HTTP client for communicating with backend servers. The <code class="bg-gray-100 px-2 py-0.5 rounded text-red-600 text-sm">HttpClient</code>
+          module provides a simplified API over XMLHttpRequest.
+        </p>
+        <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
+          <pre>{{ httpClientExample }}</pre>
+        </div>
+      </section>
+
+      <!-- inject() Function -->
+      <section class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">The inject() Function (Angular 14+)</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Angular 14 introduced the <code class="bg-gray-100 px-2 py-0.5 rounded text-red-600 text-sm">inject()</code> function as a cleaner alternative
+          to constructor-based DI. It can be used at the class field level, making code more concise.
+        </p>
+        <div class="bg-gray-900 rounded-lg p-6 font-mono text-sm text-green-400 overflow-x-auto">
+          <pre>{{ injectExample }}</pre>
+        </div>
+      </section>
+
+      <!-- Singleton Pattern -->
+      <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Singleton Services</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          A singleton service has exactly one instance shared across the entire application. This is the most common
+          pattern for services that manage shared state or provide utility functions.
+        </p>
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 rounded-r-xl p-5">
+          <h4 class="font-semibold text-gray-900 mb-2">⚠️ Common Mistake</h4>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Using <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm">providedIn: 'any'</code> creates a new instance per lazy-loaded module,
+            breaking the singleton pattern. Always use <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm">providedIn: 'root'</code> for true singletons.
+          </p>
+        </div>
+      </section>
+
+      <!-- Best Practices -->
+      <section class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Best Practices</h2>
+        <div class="space-y-3">
+          @for (practice of bestPractices; track practice) {
+            <div class="flex gap-3 bg-white rounded-xl p-4 shadow-sm">
+              <div class="flex-shrink-0 text-green-600">✓</div>
+              <p class="text-gray-600 text-sm">{{ practice }}</p>
+            </div>
+          }
+        </div>
+      </section>
+    </div>
+  `
+})
+export class ServicesPage {
+  basicService = `import { Injectable, signal } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'  // Singleton — one instance per app
+})
+export class UserService {
+  private users = signal([
+    { id: 1, name: 'Alice' },
+    { id: 2, name: 'Bob' }
+  ]);
+
+  getAll() {
+    return this.users();
+  }
+
+  getById(id: number) {
+    return this.users().find(u => u.id === id);
+  }
+
+  add(user: { id: number; name: string }) {
+    this.users.update(users => [...users, user]);
+  }
+}`;
+
+  useService = `import { Component } from '@angular/core';
+import { UserService } from './user.service';
+
+@Component({
+  selector: 'app-user-list',
+  standalone: true,
+  template: \`
+    @for (user of users(); track user.id) {
+      <div>{{ user.name }}</div>
+    }
+  \`
+})
+export class UserListComponent {
+  // Method 1: Constructor injection (classic)
+  // constructor(private userService: UserService) {}
+
+  // Method 2: Field-level injection (Angular 14+)
+  private userService = inject(UserService);
+
+  // Expose for template
+  users = this.userService.getAll;
+}`;
+
+  providerLevels = [
+    {
+      icon: '🌐',
+      name: 'Root Injector (providedIn: "root")',
+      description: 'Creates a singleton service available throughout the entire application. This is the most common and recommended approach.',
+      example: `@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {}`
+    },
+    {
+      icon: '📦',
+      name: 'Component Injector',
+      description: 'Creates a new instance for each component and its children. Useful for component-specific state.',
+      example: `@Component({
+  selector: 'app-dashboard',
+  providers: [DashboardService],
+  template: \`...\`
+})
+export class DashboardComponent {}`
+    },
+    {
+      icon: '🏗️',
+      name: 'Directive/Component (providedIn: "self")',
+      description: 'Each instance of the directive/component gets its own service instance.',
+      example: `@Injectable({
+  providedIn: 'self'
+})
+export class CounterService {}`
+    },
+    {
+      icon: '📋',
+      name: 'Module Injector',
+      description: 'Register at the NgModule level. Less common with standalone components.',
+      example: `@NgModule({
+  providers: [LoggerService]
+})
+export class SharedModule {}`
+    }
+  ];
+
+  httpClientExample = `import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({ providedIn: 'root' })
+export class DataService {
+  private apiUrl = 'https://api.example.com';
+
+  constructor(private http: HttpClient) {}
+
+  // GET request
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(\`\${this.apiUrl}/users\`);
+  }
+
+  // POST request
+  createUser(user: User): Observable<User> {
+    return this.http.post<User>(\`\${this.apiUrl}/users\`, user);
+  }
+
+  // PUT request
+  updateUser(id: number, user: User): Observable<User> {
+    return this.http.put<User>(\`\${this.apiUrl}/users/\${id}\`, user);
+  }
+
+  // DELETE request
+  deleteUser(id: number): Observable<void> {
+    return this.http.delete<void>(\`\${this.apiUrl}/users/\${id}\`);
+  }
+}
+
+// Provide in app config
+import { provideHttpClient } from '@angular/common/http';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideHttpClient()  // Required for HttpClient
+  ]
+};`;
+
+  injectExample = `import { inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+
+// No constructor needed!
+export class DataComponent {
+  // Inject at field level — clean and concise
+  private http = inject(HttpClient);
+  private route = inject(ActivatedRoute);
+  private userService = inject(UserService);
+
+  // Inject optional dependencies
+  private logger = inject(LoggerService, { optional: true });
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      console.log('ID:', params.id);
+    });
+  }
+}`;
+
+  bestPractices = [
+    'Use providedIn: "root" for most services to get singleton behavior and tree-shaking.',
+    'Keep services focused on a single responsibility — one service, one purpose.',
+    'Use the inject() function for cleaner dependency injection at the field level.',
+    'Use Signals in services for reactive state management instead of Subject/BehaviorSubject when possible.',
+    'Always provide HttpClient with provideHttpClient() in your app config.',
+    'Use RxJS operators like catchError, retry, and tap for robust HTTP handling.',
+    'Avoid putting DOM manipulation or component-specific logic in services.',
+    'Use interfaces to define service contracts for better testability and type safety.'
+  ];
+}
