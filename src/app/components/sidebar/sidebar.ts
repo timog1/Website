@@ -1,27 +1,20 @@
 import { Component, input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
+export interface NavItem {
+  path: string;
+  label: string;
+  exact?: boolean;
+}
+
 @Component({
   selector: 'app-sidebar',
   imports: [RouterLink, RouterLinkActive],
-  template: `
-    <aside class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-      <h3 class="text-lg font-semibold text-gray-800 mb-4">Table of Contents</h3>
-      <nav class="space-y-1">
-        @for (item of navigation(); track item.path) {
-          <a [routerLink]="item.path"
-             routerLinkActive="bg-red-50 text-red-700 font-medium"
-             [routerLinkActiveOptions]="{exact: item.exact ?? false}"
-             class="block px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors text-sm">
-            {{ item.label }}
-          </a>
-        }
-      </nav>
-    </aside>
-  `
+  templateUrl: './sidebar.html',
+  styleUrl: './sidebar.css'
 })
 export class SidebarComponent {
-  navigation = input<Array<{path: string; label: string; exact?: boolean}>>([
+  navigation = input<NavItem[]>([
     { path: '/', label: 'Getting Started', exact: true },
     { path: '/hydration', label: 'Hydration & SSR' },
     { path: '/components', label: 'Components' },
