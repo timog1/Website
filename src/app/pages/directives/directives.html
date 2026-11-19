@@ -1,0 +1,119 @@
+<div class="space-y-12">
+  <section>
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Directives</h1>
+    <p class="text-xl text-gray-600">
+      Learn how directives change the appearance or behavior of DOM elements — from built-in control flow to custom directives.
+    </p>
+  </section>
+
+  <!-- What are Directives -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">What are Directives?</h2>
+    <p class="text-gray-600 leading-relaxed mb-4">
+      Directives are classes that add additional behavior to elements in an Angular application. There are three categories:
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+      @for (type of directiveTypes; track type.name) {
+        <div class="border border-gray-200 rounded-xl p-5">
+          <div class="text-2xl mb-2">{{ type.icon }}</div>
+          <h3 class="font-semibold text-gray-900 mb-1">{{ type.name }}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{{ type.description }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Built-in Structural Directives -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Built-in Structural Directives</h2>
+    <p class="text-gray-600 leading-relaxed mb-6">
+      Structural directives change the DOM layout by adding, removing, or manipulating elements.
+      They are identified by the <code class="bg-gray-100 px-2 py-0.5 rounded text-red-600 text-sm">*</code> prefix.
+    </p>
+    <div class="space-y-6">
+      @for (directive of structuralDirectives; track directive.name) {
+        <div class="border border-gray-200 rounded-xl p-5">
+          <h3 class="font-semibold text-gray-900 mb-1">{{ directive.name }}</h3>
+          <p class="text-gray-500 text-sm mb-3">{{ directive.description }}</p>
+          <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
+            <pre>{{ directive.example }}</pre>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Modern Control Flow -->
+  <section class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Modern Control Flow (Angular 17+)</h2>
+    <p class="text-gray-600 leading-relaxed mb-4">
+      Angular 17 introduced a new built-in control flow syntax that replaces the traditional structural directives.
+      The new syntax is more readable, more performant, and provides better developer experience.
+    </p>
+    <div class="space-y-6">
+      @for (block of modernControlFlow; track block.name) {
+        <div class="bg-white rounded-xl p-5 shadow-sm">
+          <h3 class="font-semibold text-gray-900 mb-2">{{ block.name }}</h3>
+          <p class="text-gray-500 text-sm mb-3">{{ block.description }}</p>
+          <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
+            <pre>{{ block.example }}</pre>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Attribute Directives -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Built-in Attribute Directives</h2>
+    <div class="space-y-4">
+      @for (directive of attributeDirectives; track directive.name) {
+        <div class="border border-gray-200 rounded-xl p-5">
+          <h3 class="font-semibold text-gray-900 mb-1">{{ directive.name }}</h3>
+          <p class="text-gray-500 text-sm mb-3">{{ directive.description }}</p>
+          <div class="bg-gray-900 rounded-lg p-3 font-mono text-sm text-green-400 overflow-x-auto">
+            <pre>{{ directive.example }}</pre>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Custom Directives -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Creating Custom Directives</h2>
+    <div class="space-y-6">
+      <div>
+        <h3 class="text-lg font-semibold text-gray-900 mb-2">Custom Attribute Directive</h3>
+        <p class="text-gray-600 leading-relaxed mb-3">
+          Create a directive that highlights text on hover:
+        </p>
+        <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
+          <pre>{{ customAttributeExample }}</pre>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-gray-900 mb-2">Custom Structural Directive</h3>
+        <p class="text-gray-600 leading-relaxed mb-3">
+          Create a directive that shows content only on a specific platform:
+        </p>
+        <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
+          <pre>{{ customStructuralExample }}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Practices -->
+  <section class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Best Practices</h2>
+    <div class="space-y-3">
+      @for (practice of bestPractices; track practice) {
+        <div class="flex gap-3 bg-white rounded-xl p-4 shadow-sm">
+          <div class="flex-shrink-0 text-green-600">✓</div>
+          <p class="text-gray-600 text-sm">{{ practice }}</p>
+        </div>
+      }
+    </div>
+  </section>
+</div>

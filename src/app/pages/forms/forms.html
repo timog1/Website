@@ -1,0 +1,121 @@
+<div class="space-y-12">
+  <section>
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Forms</h1>
+    <p class="text-xl text-gray-600">
+      Build robust forms in Angular using both Template-Driven and Reactive Forms approaches, with validation and dynamic controls.
+    </p>
+  </section>
+
+  <!-- Two Approaches -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Two Approaches to Forms</h2>
+    <p class="text-gray-600 leading-relaxed mb-6">
+      Angular provides two paradigms for handling forms. Choose the right one based on your use case:
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="border border-gray-200 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-2">📝 Template-Driven Forms</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-3">
+          Simple forms where the logic lives in the template. Uses directives like ngModel and template variables.
+          Best for simple forms with basic validation.
+        </p>
+        <ul class="text-sm text-gray-500 space-y-1">
+          <li>• Less boilerplate code</li>
+          <li>• Easier to write for simple forms</li>
+          <li>• Harder to test</li>
+          <li>• Asynchronous validation</li>
+        </ul>
+      </div>
+      <div class="border-2 border-red-200 rounded-xl p-6 bg-red-50">
+        <h3 class="text-lg font-semibold text-gray-900 mb-2">⚡ Reactive Forms</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-3">
+          Model-driven approach where form structure is defined in the component class.
+          Best for complex forms with dynamic validation. <strong class="text-red-600">Recommended for most cases.</strong>
+        </p>
+        <ul class="text-sm text-gray-500 space-y-1">
+          <li>• More explicit and testable</li>
+          <li>• Better for complex forms</li>
+          <li>• Synchronous validation</li>
+          <li>• Dynamic form controls</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Template-Driven Forms -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Template-Driven Forms</h2>
+    <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
+      <pre>{{ templateDrivenExample }}</pre>
+    </div>
+  </section>
+
+  <!-- Reactive Forms -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Reactive Forms</h2>
+    <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
+      <pre>{{ reactiveFormExample }}</pre>
+    </div>
+  </section>
+
+  <!-- Form Validation -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Form Validation</h2>
+    <p class="text-gray-600 leading-relaxed mb-6">
+      Angular provides built-in validators and supports custom validators for both approaches.
+    </p>
+    <div class="space-y-4">
+      @for (validator of validators; track validator.name) {
+        <div class="border border-gray-200 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center gap-2">
+          <code class="text-red-600 font-semibold text-sm sm:w-48 flex-shrink-0">{{ validator.name }}</code>
+          <p class="text-gray-500 text-sm">{{ validator.description }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Custom Validators -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Custom Validators</h2>
+    <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
+      <pre>{{ customValidatorExample }}</pre>
+    </div>
+  </section>
+
+  <!-- Dynamic Forms -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Dynamic Forms with FormArray</h2>
+    <p class="text-gray-600 leading-relaxed mb-4">
+      FormArray lets you create forms with a dynamic number of controls — perfect for scenarios like
+      adding multiple email addresses or form items.
+    </p>
+    <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
+      <pre>{{ formArrayExample }}</pre>
+    </div>
+  </section>
+
+  <!-- Signals with Forms -->
+  <section class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Forms with Signals (Angular 21+)</h2>
+    <p class="text-gray-600 leading-relaxed mb-4">
+      Angular 21 introduces model() signal for two-way binding, providing a modern alternative
+      to ngModel with full signal reactivity.
+    </p>
+    <div class="bg-gray-900 rounded-lg p-6 font-mono text-sm text-green-400 overflow-x-auto">
+      <pre>{{ signalsFormExample }}</pre>
+    </div>
+  </section>
+
+  <!-- Best Practices -->
+  <section class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Best Practices</h2>
+    <div class="space-y-3">
+      @for (practice of bestPractices; track practice) {
+        <div class="flex gap-3 bg-white rounded-xl p-4 shadow-sm">
+          <div class="flex-shrink-0 text-green-600">✓</div>
+          <p class="text-gray-600 text-sm">{{ practice }}</p>
+        </div>
+      }
+    </div>
+  </section>
+</div>

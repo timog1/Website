@@ -1,0 +1,60 @@
+<div class="space-y-12">
+  <!-- Header -->
+  <section>
+    <h1 class="text-3xl font-bold text-gray-900 mb-4">Pipes</h1>
+    <p class="text-lg text-gray-600">
+      Pipes transform values in your templates — formatting dates, currency, text, and more.
+      Learn built-in pipes and how to create your own custom pipes.
+    </p>
+  </section>
+
+  <!-- Built-in Pipes -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Built-in Pipes</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (pipe of builtInPipes; track pipe.name) {
+        <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xl">{{ pipe.icon }}</span>
+            <h3 class="text-lg font-semibold text-gray-800">{{ pipe.name }}</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-3">{{ pipe.description }}</p>
+          <pre class="bg-white rounded-lg p-2 overflow-x-auto text-xs border border-gray-200 mb-2"><code>{{ pipe.example }}</code></pre>
+          <p class="text-gray-400 text-xs">→ {{ pipe.output }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Custom Pipes -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Custom Pipes</h2>
+    <div class="space-y-8">
+      @for (concept of customPipeConcepts; track concept.title) {
+        <div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ concept.title }}</h3>
+          <p class="text-gray-600 mb-4">{{ concept.description }}</p>
+          <pre class="bg-gray-50 rounded-xl p-4 overflow-x-auto text-sm border border-gray-200"><code>{{ concept.code }}</code></pre>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Tips -->
+  <section class="bg-gradient-to-br from-red-50 to-pink-50 rounded-2xl p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Best Practices</h2>
+    <div class="space-y-4">
+      @for (item of pipeTips; track item.tip) {
+        <div class="flex gap-3">
+          <div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center mt-0.5">
+            <span class="text-red-600 text-sm">✓</span>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-900">{{ item.tip }}</h4>
+            <p class="text-gray-500 text-sm">{{ item.detail }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+</div>

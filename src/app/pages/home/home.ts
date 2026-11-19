@@ -50,6 +50,42 @@ export class HomePage {
       title: 'Forms',
       description: 'Build forms with both template-driven and reactive approaches, including validation and dynamic forms.',
       path: '/forms'
+    },
+    {
+      icon: '🛤️',
+      title: 'Routing',
+      description: 'Master Angular Router — route configuration, guards, resolvers, lazy loading, and navigation patterns.',
+      path: '/routing'
+    },
+    {
+      icon: '📦',
+      title: 'State Management',
+      description: 'Learn signals-based state, service patterns, model(), and NgRx for structured state management.',
+      path: '/state'
+    },
+    {
+      icon: '🔧',
+      title: 'Pipes',
+      description: 'Transform values in templates with built-in pipes and learn to create custom pipes for any transformation.',
+      path: '/pipes'
+    },
+    {
+      icon: '🧪',
+      title: 'Testing',
+      description: 'Write reliable tests with TestBed — unit tests, component tests, mocking, and async testing patterns.',
+      path: '/testing'
+    },
+    {
+      icon: '⚡',
+      title: 'Performance',
+      description: 'Optimize your apps with OnPush, deferred loading, bundle optimization, and change detection strategies.',
+      path: '/performance'
+    },
+    {
+      icon: '🎯',
+      title: 'Exercises',
+      description: 'Practice with interactive quizzes and hands-on coding challenges covering all Angular topics.',
+      path: '/exercises'
     }
   ];
 

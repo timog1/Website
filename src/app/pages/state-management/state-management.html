@@ -1,0 +1,82 @@
+<div class="space-y-12">
+  <!-- Header -->
+  <section>
+    <h1 class="text-3xl font-bold text-gray-900 mb-4">State Management</h1>
+    <p class="text-lg text-gray-600">
+      Learn how to manage application state in Angular — from simple signals to structured patterns like NgRx.
+      Choose the right approach for your app's complexity.
+    </p>
+  </section>
+
+  <!-- Signal Concepts -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Signal Fundamentals</h2>
+    <div class="space-y-8">
+      @for (concept of signalConcepts; track concept.title) {
+        <div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ concept.title }}</h3>
+          <p class="text-gray-600 mb-4">{{ concept.description }}</p>
+          <pre class="bg-gray-50 rounded-xl p-4 overflow-x-auto text-sm border border-gray-200"><code>{{ concept.code }}</code></pre>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- State Patterns -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">State Management Patterns</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      @for (pattern of statePatterns; track pattern.name) {
+        <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-2xl">{{ pattern.icon }}</span>
+            <h3 class="text-lg font-semibold text-gray-800">{{ pattern.name }}</h3>
+          </div>
+          <p class="text-gray-600 text-sm mb-3">{{ pattern.description }}</p>
+          <pre class="bg-white rounded-lg p-3 overflow-x-auto text-xs border border-gray-200 mb-3"><code>{{ pattern.code }}</code></pre>
+          <p class="text-red-600 text-xs font-medium">💡 {{ pattern.whenToUse }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Service Signals vs NgRx</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-gray-200">
+            <th class="text-left py-3 px-4 font-semibold text-gray-700">Feature</th>
+            <th class="text-left py-3 px-4 font-semibold text-gray-700">Service + Signals</th>
+            <th class="text-left py-3 px-4 font-semibold text-gray-700">NgRx</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (row of comparisonTable; track row.feature) {
+            <tr class="border-b border-gray-100 hover:bg-gray-50">
+              <td class="py-3 px-4 font-medium text-gray-800">{{ row.feature }}</td>
+              <td class="py-3 px-4 text-gray-600">{{ row.service }}</td>
+              <td class="py-3 px-4 text-gray-600">{{ row.ngrx }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- NgRx Overview -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">NgRx Overview</h2>
+    <p class="text-gray-600 mb-6">NgRx provides a structured, predictable state management pattern based on Redux. It uses Actions, Reducers, and Effects to manage state flow.</p>
+    <div class="space-y-6">
+      @for (concept of ngrxConcepts; track concept.name) {
+        <div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ concept.name }}</h3>
+          <p class="text-gray-600 mb-4">{{ concept.description }}</p>
+          <pre class="bg-gray-50 rounded-xl p-4 overflow-x-auto text-sm border border-gray-200"><code>{{ concept.code }}</code></pre>
+        </div>
+      }
+    </div>
+  </section>
+</div>

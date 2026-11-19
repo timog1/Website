@@ -21,5 +21,11 @@ export class SidebarComponent {
     { path: '/directives', label: 'Directives' },
     { path: '/services', label: 'Services & DI' },
     { path: '/forms', label: 'Forms' },
+    { path: '/routing', label: 'Routing' },
+    { path: '/state', label: 'State Management' },
+    { path: '/pipes', label: 'Pipes' },
+    { path: '/testing', label: 'Testing' },
+    { path: '/performance', label: 'Performance' },
+    { path: '/exercises', label: 'Exercises & Quizzes' },
   ]);
 }

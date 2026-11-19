@@ -1,0 +1,179 @@
+<div class="space-y-12">
+  <!-- Header -->
+  <section>
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">Hydration & Server-Side Rendering</h1>
+    <p class="text-xl text-gray-600">
+      Understanding how Angular renders on the server and hydrates the client for optimal performance and SEO.
+    </p>
+  </section>
+
+  <!-- What is SSR -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">What is Server-Side Rendering (SSR)?</h2>
+    <div class="prose prose-gray max-w-none">
+      <p class="text-gray-600 leading-relaxed mb-4">
+        Server-Side Rendering (SSR) is a technique where the HTML for a web page is generated on the server
+        and sent to the browser as a fully-formed document, rather than sending an empty HTML shell and letting
+        JavaScript build the page in the browser.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-4">
+        In traditional Single Page Applications (SPAs), the browser downloads a minimal HTML file with a root element,
+        then fetches JavaScript bundles, executes them, and constructs the DOM. This means search engine crawlers
+        and users see an empty page until JavaScript finishes loading and executing.
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        With SSR, the server runs your Angular application, renders the initial view to HTML, and sends that HTML
+        directly to the browser. Users see content immediately, and search engines can index the page content without
+        executing JavaScript.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why SSR Matters -->
+  <section class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Why Does SSR Matter?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      @for (benefit of benefits; track benefit.title) {
+        <div class="bg-white rounded-xl p-5 shadow-sm">
+          <div class="text-2xl mb-2">{{ benefit.icon }}</div>
+          <h3 class="font-semibold text-gray-900 mb-1">{{ benefit.title }}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{{ benefit.description }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- How SSR Works in Angular -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">How SSR Works in Angular</h2>
+    <div class="space-y-6">
+      @for (step of ssrSteps; track step.number) {
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-pink-500 text-white flex items-center justify-center font-bold text-lg">
+            {{ step.number }}
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900 text-lg mb-1">{{ step.title }}</h3>
+            <p class="text-gray-600 leading-relaxed">{{ step.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- What is Hydration -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">What is Hydration?</h2>
+    <div class="prose prose-gray max-w-none">
+      <p class="text-gray-600 leading-relaxed mb-4">
+        Hydration is the process where Angular takes the static HTML sent from the server and makes it interactive
+        on the client side. After the browser receives the server-rendered HTML, Angular's JavaScript bundles load
+        and "hydrate" the page by attaching event listeners, setting up data bindings, and initializing components.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-4">
+        Think of it like this: the server sends you a beautifully painted picture (static HTML). Hydration is the
+        process of turning that picture into a living, breathing application where buttons respond to clicks,
+        data updates in real-time, and navigation works seamlessly.
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        Before Angular 17, hydration required re-rendering the entire DOM — Angular would destroy the server-rendered
+        DOM and rebuild it from scratch on the client. This caused a visible flash and wasted resources. Angular 17
+        introduced <strong>Incremental Hydration</strong>, which reuses the server-rendered DOM and only attaches
+        the necessary event listeners and bindings.
+      </p>
+    </div>
+  </section>
+
+  <!-- Hydration Strategies -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Hydration Strategies in Angular</h2>
+    <div class="space-y-6">
+      @for (strategy of hydrationStrategies; track strategy.name) {
+        <div class="border border-gray-200 rounded-xl p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-2xl">{{ strategy.icon }}</span>
+            <h3 class="text-xl font-semibold text-gray-900">{{ strategy.name }}</h3>
+          </div>
+          <p class="text-gray-600 leading-relaxed mb-3">{{ strategy.description }}</p>
+          <div class="bg-gray-50 rounded-lg p-4 font-mono text-sm text-gray-700 overflow-x-auto">
+            <pre>{{ strategy.code }}</pre>
+          </div>
+          <p class="text-gray-500 text-sm mt-3 italic">{{ strategy.whenToUse }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- SSR vs CSR Comparison -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">SSR vs CSR: Side-by-Side Comparison</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 border-gray-200">
+            <th class="text-left py-3 px-4 font-semibold text-gray-900">Feature</th>
+            <th class="text-left py-3 px-4 font-semibold text-red-600">SSR + Hydration</th>
+            <th class="text-left py-3 px-4 font-semibold text-gray-600">Client-Side Only</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (row of comparisonRows; track row.feature) {
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4 font-medium text-gray-900">{{ row.feature }}</td>
+              <td class="py-3 px-4 text-gray-600">{{ row.ssr }}</td>
+              <td class="py-3 px-4 text-gray-600">{{ row.csr }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Code Example -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Setting Up SSR in Angular</h2>
+    <p class="text-gray-600 leading-relaxed mb-6">
+      Angular makes it easy to add SSR to your application. Here's how to get started:
+    </p>
+    <div class="space-y-4">
+      @for (step of setupSteps; track step.title) {
+        <div>
+          <h4 class="font-medium text-gray-900 mb-2">{{ step.title }}</h4>
+          <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
+            <pre>{{ step.code }}</pre>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Best Practices -->
+  <section class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Best Practices for Hydration</h2>
+    <div class="space-y-4">
+      @for (practice of bestPractices; track practice.title) {
+        <div class="flex gap-3 bg-white rounded-xl p-4 shadow-sm">
+          <div class="flex-shrink-0 text-green-600 text-xl">💡</div>
+          <div>
+            <h4 class="font-medium text-gray-900 mb-1">{{ practice.title }}</h4>
+            <p class="text-gray-500 text-sm leading-relaxed">{{ practice.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- Common Pitfalls -->
+  <section class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Common Pitfalls & Solutions</h2>
+    <div class="space-y-4">
+      @for (pitfall of pitfalls; track pitfall.title) {
+        <div class="border-l-4 border-yellow-400 bg-yellow-50 rounded-r-xl p-5">
+          <h4 class="font-semibold text-gray-900 mb-2">⚠️ {{ pitfall.title }}</h4>
+          <p class="text-gray-600 text-sm leading-relaxed mb-2">{{ pitfall.problem }}</p>
+          <p class="text-gray-700 text-sm"><strong>Solution:</strong> {{ pitfall.solution }}</p>
+        </div>
+      }
+    </div>
+  </section>
+</div>
